@@ -1,11 +1,11 @@
-import type { InputHTMLAttributes } from "react";
-import "@/styles/atoms/Input.css";
+import type { InputHTMLAttributes } from 'react';
+import '@/styles/atoms/Input.css';
 
 const Input = ({
-   className = "",
+   className = '',
    ...props
 }: InputHTMLAttributes<HTMLInputElement>) => {
-   return <input className={`input ${className}`} {...props} />;
+   return <input className={`${className}`} {...props} />;
 };
 
 export default Input;

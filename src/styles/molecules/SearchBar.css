@@ -3,7 +3,7 @@
    gap: 1.6rem;
 }
 
-.button {
+button {
    padding: 0.8rem;
    background-color: white;
    border-radius: var(--border-radius);

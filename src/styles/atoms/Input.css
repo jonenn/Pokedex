@@ -1,4 +1,4 @@
-.input {
+input {
    border-radius: var(--border-radius);
    -webkit-appearance: none;
    -moz-appearance: none;
@@ -23,7 +23,7 @@
    box-shadow: var(--box-shadow);
 }
 
-.input::placeholder {
+input::placeholder {
    color: #666666;
    opacity: 1;
    font-weight: 400;
