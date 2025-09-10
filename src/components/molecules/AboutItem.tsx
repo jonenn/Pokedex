@@ -3,7 +3,6 @@ import Text from '../atoms/Text';
 import '@/styles/molecules/AboutItem.css';
 
 interface AboutItemProps {
-   image: string;
    icon: 'weight' | 'height';
    value: string;
    label: string;
