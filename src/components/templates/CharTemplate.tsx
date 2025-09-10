@@ -1,5 +1,5 @@
 import Main from '../atoms/Main';
-import Header from '../organisms/Header';
+import CharHeader from '../organisms/CharHeader';
 import '@/styles/templates/MainTemplate.css';
 
 interface MainTemplateProps {
@@ -9,7 +9,7 @@ interface MainTemplateProps {
 const CharTemplate = ({ children }: MainTemplateProps) => {
    return (
       <>
-         <Header />
+         <CharHeader name="Pokémon Name" number={999} />
          <Main>
             <div className="main__subcontainer">{children}</div>
          </Main>

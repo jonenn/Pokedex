@@ -1,6 +1,6 @@
-import '@/styles/Text.css';
+import '@/styles/atoms/Text.css';
 
-type TextElement = 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'div';
+type TextElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p' | 'span' | 'div';
 
 interface TextProps {
    children: React.ReactNode;
