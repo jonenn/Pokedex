@@ -1,0 +1,10 @@
+.abilities {
+   display: flex;
+   flex-direction: column;
+   gap: 0.4rem;
+}
+
+.abilities__moves {
+   display: flex;
+   flex-direction: column;
+}

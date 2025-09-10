@@ -11,6 +11,10 @@
    gap: 0.8rem;
 }
 
+.about-item__value {
+   line-height: 1.6rem;
+}
+
 .about-item__label {
    color: var(--gray-medium);
 }
