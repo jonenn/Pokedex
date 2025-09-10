@@ -9,6 +9,7 @@
    font-weight: 700;
    text-align: center;
    color: var(--gray-wireframe);
+   line-height: 1.6rem;
 }
 
 .about-section__info {

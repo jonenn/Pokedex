@@ -1,0 +1,13 @@
+.stats-section {
+   display: flex;
+   flex-direction: column;
+   gap: 1.6rem;
+}
+
+.stats-section--title {
+   margin-top: 1.6rem;
+   font-weight: 700;
+   text-align: center;
+   color: var(--gray-wireframe);
+   line-height: 1.6rem;
+}

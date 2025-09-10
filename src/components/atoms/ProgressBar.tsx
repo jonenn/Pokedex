@@ -1,4 +1,4 @@
-// import '@/styles/atoms/ProgressBar.css';
+import '@/styles/atoms/ProgressBar.css';
 
 interface ProgressBarProps {
    percentage: number;

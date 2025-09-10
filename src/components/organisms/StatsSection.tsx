@@ -1,4 +1,5 @@
-// import '@/styles/organisms/StatsSection.css';
+import '@/styles/organisms/StatsSection.css';
+import Text from '../atoms/Text';
 import Stats from '../molecules/Stats';
 
 interface StatsSectionProps {
@@ -8,7 +9,9 @@ interface StatsSectionProps {
 const StatsSection = ({ stats }: StatsSectionProps) => {
    return (
       <section className="stats-section">
-         <h2 className="section-title">Base Stats</h2>
+         <Text as="h4" className="stats-section--title">
+            Base Stats
+         </Text>
          <div className="stats-section__list">
             {stats.map((stat) => (
                <Stats key={stat.label} label={stat.label} value={stat.value} />
