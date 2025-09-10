@@ -1,0 +1,19 @@
+.section-title {
+   font-weight: 700;
+   text-align: center;
+   color: var(--gray-wireframe);
+}
+
+.about-section__info {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   margin-bottom: 16px;
+}
+
+.about-section__description {
+   font-size: 14px;
+   line-height: 1.5;
+   text-align: justify;
+   color: #444;
+}

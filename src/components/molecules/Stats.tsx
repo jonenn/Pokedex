@@ -1,6 +1,6 @@
 import Text from '../atoms/Text';
 import ProgressBar from '../atoms/ProgressBar';
-import '@/styles/molecules/Stats.css';
+// import '@/styles/molecules/Stats.css';
 
 interface StatsProps {
    label: string;
@@ -12,7 +12,7 @@ const Stats = ({ label, value }: StatsProps) => {
       <div className="stats">
          <Text>{label}</Text>
          <Text>{value}</Text>
-         <ProgressBar value={value} />
+         <ProgressBar percentage={value} />
       </div>
    );
 };

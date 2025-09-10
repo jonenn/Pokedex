@@ -1,4 +1,4 @@
-import '@/styles/molecules/Abilities.css';
+// import '@/styles/molecules/Abilities.css';
 import Text from '../atoms/Text';
 
 interface AbilitiesProps {

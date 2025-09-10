@@ -18,7 +18,9 @@ const AboutSection = ({
 }: AboutSectionProps) => {
    return (
       <section className="about-section">
-         <h2 className="section-title">About</h2>
+         <Text as="h4" className="section-title">
+            About
+         </Text>
          <div className="about-section__info">
             <AboutItem icon="weight" value={weight} label="Weight" />
             <AboutItem icon="height" value={height} label="Height" />

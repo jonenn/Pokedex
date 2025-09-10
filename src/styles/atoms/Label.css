@@ -1,0 +1,7 @@
+.label {
+   color: white;
+   border-radius: var(--border-radius-tertiary);
+   background-color: red;
+   padding: 0.2rem 0.8rem;
+   font-weight: 700;
+}

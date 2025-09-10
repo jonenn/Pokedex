@@ -3,33 +3,34 @@ import '@/styles/organisms/NavChar.css';
 import NavArrow from '../molecules/NavArrow';
 import LeftArrow from '@/assets/LeftArrow.svg';
 import RightArrow from '@/assets/RightArrow.svg';
+import Label from '../atoms/Label';
 
 interface NavCharProps {
    image?: string;
    next?: string;
    previous?: string;
+   type: string;
 }
 
-const NavChar = ({ image, next, previous }: NavCharProps) => {
+const NavChar = ({ image, next, previous, type }: NavCharProps) => {
    return (
-      <div className="nav-char">
-         <NavArrow to={previous || '#'} image={LeftArrow} />
-         <Image
-            src={
-               image ||
-               'https://res.cloudinary.com/dedihqcsy/image/upload/v1757531128/Silhouette_xzwzdy.png'
-            }
-            style={{
-               width: '54%',
-               height: '54%',
-               maxWidth: 300,
-               maxHeight: 300,
-               objectFit: 'contain',
-            }}
-            alt="Pokemon Character"
-         />
-         <NavArrow to={next || '#'} image={RightArrow} />
-      </div>
+      <>
+         <div className="nav-char">
+            <NavArrow to={previous || '#'} image={LeftArrow} />
+            <Image
+               src={
+                  image ||
+                  'https://res.cloudinary.com/dedihqcsy/image/upload/v1757531128/Silhouette_xzwzdy.png'
+               }
+               className="nav-char__image"
+               alt="Pokemon Character"
+            />
+            <NavArrow to={next || '#'} image={RightArrow} />
+         </div>
+         <div className="nav-char__labels">
+            <Label type={type || 'Type'} />
+         </div>
+      </>
    );
 };
 

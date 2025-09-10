@@ -1,6 +1,6 @@
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
-import '@/styles/molecules/AboutItem.css';
+// import '@/styles/molecules/AboutItem.css';
 
 interface AboutItemProps {
    icon: 'weight' | 'height';
