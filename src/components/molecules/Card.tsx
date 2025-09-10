@@ -5,7 +5,7 @@ import Image from '../atoms/Image';
 interface MainProps {
    className?: string;
    number: number;
-   image?: string;
+   image: string;
    title: string;
 }
 
@@ -19,6 +19,7 @@ const Card = ({ number, image, title, className = '' }: MainProps) => {
                   image ||
                   'https://res.cloudinary.com/dedihqcsy/image/upload/v1757531128/Silhouette_xzwzdy.png'
                }
+               className="card__image"
                alt="Pokemon Character"
                width={72}
                height={72}
