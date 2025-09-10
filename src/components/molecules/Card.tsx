@@ -1,6 +1,7 @@
 import '@/styles/molecules/Card.css';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
+import { Link } from 'react-router-dom';
 
 interface MainProps {
    className?: string;
@@ -11,7 +12,7 @@ interface MainProps {
 
 const Card = ({ number, image, title, className = '' }: MainProps) => {
    return (
-      <div className={`card ${className}`}>
+      <Link to={`/pokemon/${number}`} className={`card ${className}`}>
          <div className="card__content">
             <Text className="card__number">#{number}</Text>
             <Image
@@ -27,7 +28,7 @@ const Card = ({ number, image, title, className = '' }: MainProps) => {
             <Text className="card__title">{title}</Text>
          </div>
          <div className="card__background"></div>
-      </div>
+      </Link>
    );
 };
 

@@ -8,7 +8,7 @@ const App = () => {
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/number" element={<Character />} />
+            <Route path="/pokemon/:id" element={<Character />} />
             {/* <Route path="/contact" element={<Contact />} /> */}
          </Routes>
       </BrowserRouter>
