@@ -1,14 +1,17 @@
-import CardWrapper from '../atoms/CardWrapper';
 import Main from '../atoms/Main';
 import Header from '../organisms/Header';
 import '@/styles/templates/MainTemplate.css';
 
-const MainTemplate = () => {
+interface MainTemplateProps {
+   children?: React.ReactNode;
+}
+
+const MainTemplate = ({ children }: MainTemplateProps) => {
    return (
       <>
          <Header />
          <Main>
-            <CardWrapper>Hi</CardWrapper>
+            <div className="main__subcontainer">{children}</div>
          </Main>
       </>
    );

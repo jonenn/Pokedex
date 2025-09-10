@@ -1,10 +1,16 @@
 import '@/styles/Home/Home.css';
 import MainTemplate from '../templates/MainTemplate';
+import Card from '../molecules/Card';
 
 const Home = () => {
    return (
       <>
-         <MainTemplate />
+         <MainTemplate>
+            <Card number={999} title="Pókemon Name" />
+            <Card number={999} title="Pókemon Name" />
+            <Card number={999} title="Pókemon Name" />
+            <Card number={999} title="Pókemon Name" />
+         </MainTemplate>
       </>
    );
 };
