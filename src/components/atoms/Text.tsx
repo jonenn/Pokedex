@@ -1,3 +1,5 @@
+import '@/styles/Text.css';
+
 type TextElement = 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'div';
 
 interface TextProps {

@@ -12,12 +12,12 @@
 html {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+   font-size: 10px;
 }
 
 /* Set default body styles */
 body {
    line-height: 1.5;
-   font-family: system-ui, sans-serif;
    background-color: #fff;
    color: #000;
    margin: 0;

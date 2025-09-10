@@ -1,5 +1,11 @@
 .search-bar {
    display: flex;
-   flex-direction: column;
-   gap: 8px;
+   gap: 1.6rem;
+}
+
+.button {
+   padding: 0.8rem;
+   background-color: white;
+   border-radius: var(--border-radius);
+   min-width: 3.2rem;
 }

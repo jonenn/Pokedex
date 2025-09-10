@@ -7,7 +7,7 @@ const Logo = () => {
    return (
       <div className="logo">
          <Image src={LogoImg} alt="Pokedex logo" width={24} height={24} />
-         <Text as="h2">Pokédex</Text>
+         <Text as="h1">Pokédex</Text>
       </div>
    );
 };

@@ -1,7 +1,14 @@
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import '@/styles/atoms/Button.css';
 
-const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
-   return <button {...props} />;
-};
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+   children: ReactNode;
+}
+
+const Button = ({ children, className = '', ...props }: ButtonProps) => (
+   <button className={`button ${className}`} {...props}>
+      {children}
+   </button>
+);
 
 export default Button;
