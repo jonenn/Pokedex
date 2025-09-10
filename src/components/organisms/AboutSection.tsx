@@ -18,7 +18,7 @@ const AboutSection = ({
 }: AboutSectionProps) => {
    return (
       <section className="about-section">
-         <Text as="h4" className="section-title">
+         <Text as="h4" className="about-section__title">
             About
          </Text>
          <div className="about-section__info">

@@ -1,4 +1,11 @@
-.section-title {
+.about-section {
+   display: flex;
+   flex-direction: column;
+   gap: 1.6rem;
+}
+
+.about-section__title {
+   margin-top: 1.6rem;
    font-weight: 700;
    text-align: center;
    color: var(--gray-wireframe);
@@ -15,5 +22,5 @@
    font-size: 14px;
    line-height: 1.5;
    text-align: justify;
-   color: #444;
+   color: var(--gray-dark);
 }

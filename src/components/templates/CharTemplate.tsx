@@ -9,7 +9,7 @@ const CharTemplate = ({ children }: MainTemplateProps) => {
    return (
       <>
          <CharHeader name="Pokémon Name" number={999} />
-         <Main>{children}</Main>
+         <Main className="main--char">{children}</Main>
       </>
    );
 };

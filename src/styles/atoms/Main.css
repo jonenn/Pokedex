@@ -5,3 +5,7 @@ main {
    border-radius: var(--border-radius-secondary);
    padding: 2.4rem 1.2rem;
 }
+
+.main--char {
+   padding: 2rem;
+}

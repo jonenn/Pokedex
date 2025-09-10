@@ -13,6 +13,7 @@
 
 .about-item__value {
    line-height: 1.6rem;
+   color: var(--gray-dark);
 }
 
 .about-item__label {
