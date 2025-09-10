@@ -1,5 +1,5 @@
 import '@/styles/molecules/Abilities.css';
-import Text from '../../components/atoms/Text';
+import Text from '../atoms/Text';
 
 interface AbilitiesProps {
    abilities: string[];
