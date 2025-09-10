@@ -1,8 +1,7 @@
-import type { ReactNode } from 'react';
 import '@/styles/atoms/Main.css';
 
 interface MainProps {
-   children: ReactNode;
+   children: React.ReactNode;
    className?: string;
 }
 

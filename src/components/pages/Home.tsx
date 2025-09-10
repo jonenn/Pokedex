@@ -4,11 +4,9 @@ import Card from '../molecules/Card';
 
 const Home = () => {
    return (
-      <>
-         <MainTemplate>
-            <Card number={999} title="Pókemon Name" />
-         </MainTemplate>
-      </>
+      <MainTemplate>
+         <Card number={999} title="Pókemon Name" />
+      </MainTemplate>
    );
 };
 
