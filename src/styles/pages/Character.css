@@ -1,0 +1,17 @@
+body {
+   background-color: var(--gray-wireframe);
+}
+
+body::after {
+   content: '';
+   position: absolute;
+   right: 0.4rem;
+   top: 0.4rem;
+   width: 30dvh;
+   height: 30dvh;
+   background: url('/src//assets/Logo.svg') no-repeat center/contain;
+   background-repeat: no-repeat;
+   background-size: contain;
+   opacity: 0.1;
+   pointer-events: none;
+}

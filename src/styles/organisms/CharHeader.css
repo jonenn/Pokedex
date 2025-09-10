@@ -1,16 +1,29 @@
 .char__header {
    display: flex;
-   align-items: center;
-   justify-content: space-between;
+   align-items: start;
    gap: 1rem;
-   padding: 1rem 2rem;
+   padding: 2rem;
+   padding-bottom: 2.4rem;
    color: white;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    width: 100%;
+   min-height: 33dvh;
 }
 
 .char__container {
    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 0.8rem;
+   flex: 1;
+}
+
+.char__nav {
+   display: flex;
    align-items: center;
    gap: 1rem;
+}
+
+.char__number {
+   align-self: center;
 }

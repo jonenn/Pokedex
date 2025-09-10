@@ -1,4 +1,4 @@
-import '@/styles/pages/Home.css';
+import '@/styles/pages/Character.css';
 import CharTemplate from '../templates/CharTemplate';
 
 const Character = () => {
