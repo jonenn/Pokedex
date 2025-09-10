@@ -16,13 +16,12 @@ html {
 
 /* Set default body styles */
 body {
-   min-height: 100vh;
    line-height: 1.5;
    font-family: system-ui, sans-serif;
    background-color: #fff;
    color: #000;
    margin: 0;
-   font-family: "Poppins", sans-serif;
+   font-family: 'Poppins', sans-serif;
 }
 
 /* Remove list styles */

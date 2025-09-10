@@ -1,4 +1,7 @@
 .header {
+   display: flex;
+   flex-direction: column;
    padding: 12px;
    padding-bottom: 14px;
+   gap: 0.5rem;
 }

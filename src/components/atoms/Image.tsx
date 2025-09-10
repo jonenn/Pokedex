@@ -2,9 +2,11 @@ interface ImageProps {
    src: string;
    alt: string;
    className?: string;
+   width: number;
+   height: number;
 }
 
-const Image = ({ src, alt, className = "", ...props }: ImageProps) => {
+const Image = ({ src, alt, className = '', ...props }: ImageProps) => {
    return <img src={src} alt={alt} className={`${className}`} {...props} />;
 };
 

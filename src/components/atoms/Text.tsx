@@ -1,4 +1,4 @@
-type TextElement = "h1" | "h2" | "h3" | "p" | "span" | "div";
+type TextElement = 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'div';
 
 interface TextProps {
    children: React.ReactNode;
@@ -6,10 +6,8 @@ interface TextProps {
    className?: string;
 }
 
-const Text = ({ children, as: Component = "p", className = "" }: TextProps) => {
-   return (
-      <Component className={`font-sans ${className}`}>{children}</Component>
-   );
+const Text = ({ children, as: Component = 'p', className = '' }: TextProps) => {
+   return <Component className={`${className}`}>{children}</Component>;
 };
 
 export default Text;
