@@ -1,10 +1,10 @@
 import "@/styles/Home/Home.css";
-import Logo from "../molecules/Logo";
+import Header from "../organisms/Header";
 
 const Home = () => {
    return (
       <div className="main-container">
-         <Logo></Logo>
+         <Header />
       </div>
    );
 };

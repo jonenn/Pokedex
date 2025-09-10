@@ -4,8 +4,8 @@ interface ImageProps {
    className?: string;
 }
 
-const Image = ({ src, alt, className = "" }: ImageProps) => {
-   return <img src={src} alt={alt} className={`${className}`} />;
+const Image = ({ src, alt, className = "", ...props }: ImageProps) => {
+   return <img src={src} alt={alt} className={`${className}`} {...props} />;
 };
 
 export default Image;

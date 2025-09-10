@@ -2,7 +2,6 @@
    display: flex;
    color: white;
    gap: 1rem;
-   padding: 12px;
-   padding-bottom: 14px;
    font-weight: 700;
+   height: 2rem;
 }
