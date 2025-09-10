@@ -1,0 +1,73 @@
+/* ==== CSS Reset ==== */
+/* Remove default margins, paddings, and set border-box */
+*,
+*::before,
+*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* Make default font smoother & more consistent */
+html {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Set default body styles */
+body {
+   min-height: 100vh;
+   line-height: 1.5;
+   font-family: system-ui, sans-serif;
+   background-color: #fff;
+   color: #000;
+   margin: 0;
+   font-family: "Poppins", sans-serif;
+}
+
+/* Remove list styles */
+ul,
+ol {
+   list-style: none;
+}
+
+/* Reset links */
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+/* Reset images & media */
+img,
+picture,
+video,
+canvas,
+svg {
+   display: block;
+   max-width: 100%;
+}
+
+/* Make form elements inherit font */
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+/* Remove button background/border */
+button {
+   background: none;
+   border: none;
+   cursor: pointer;
+}
+
+/* Ensure headings don't overflow */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+}

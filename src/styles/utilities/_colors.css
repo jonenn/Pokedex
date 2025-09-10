@@ -1,0 +1,13 @@
+/* Color Schema */
+:root {
+   --color-main: #dc0a2d;
+   --color-grass: #74cb48;
+   --color-fire: #f57d31;
+   --color-water: #6493eb;
+   --color-bug: #a7b723;
+   --color-electric: #f9cf30;
+   --color-ghost: #70559b;
+   --color-normal: #aaa67f;
+   --color-psychic: #fb5584;
+   --color-steel: #b7b9d0;
+}
