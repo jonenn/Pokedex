@@ -1,7 +1,6 @@
 import '@/styles/molecules/Card.css';
 import Text from '../atoms/Text';
 import Image from '../atoms/Image';
-import Silhouette from '@/assets/Silhouette.png';
 
 interface MainProps {
    className?: string;
@@ -16,7 +15,10 @@ const Card = ({ number, image, title, className = '' }: MainProps) => {
          <div className="card__content">
             <Text className="card__number">#{number}</Text>
             <Image
-               src={image || Silhouette}
+               src={
+                  image ||
+                  'https://res.cloudinary.com/dedihqcsy/image/upload/v1757531128/Silhouette_xzwzdy.png'
+               }
                alt="Pokemon Character"
                width={72}
                height={72}

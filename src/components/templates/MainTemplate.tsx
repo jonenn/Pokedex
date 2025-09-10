@@ -10,9 +10,11 @@ const MainTemplate = ({ children }: MainTemplateProps) => {
    return (
       <>
          <Header />
-         <Main>
-            <div className="main__subcontainer">{children}</div>
-         </Main>
+         <div className="main__container">
+            <Main>
+               <div className="main__subcontainer">{children}</div>
+            </Main>
+         </div>
       </>
    );
 };

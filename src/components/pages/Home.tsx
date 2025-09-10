@@ -6,6 +6,33 @@ const Home = () => {
    return (
       <MainTemplate>
          <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
+         <Card number={999} title="Pókemon Name" />
       </MainTemplate>
    );
 };

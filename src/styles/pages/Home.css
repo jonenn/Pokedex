@@ -1,3 +1,10 @@
 body {
    background-color: var(--color-main);
 }
+
+.home__container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}

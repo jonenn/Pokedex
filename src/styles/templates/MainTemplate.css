@@ -1,3 +1,8 @@
+.main__container {
+   overflow-y: scroll;
+   border-radius: var(--border-radius-secondary);
+}
+
 .main__subcontainer {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
