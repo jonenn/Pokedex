@@ -16,4 +16,5 @@ body {
    flex-direction: column;
    padding: 0.4rem;
    min-height: 100dvh;
+   max-height: 100dvh;
 }
