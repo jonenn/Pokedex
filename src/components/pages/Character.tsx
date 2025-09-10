@@ -17,12 +17,12 @@ const Character = () => {
 
          <StatsSection
             stats={[
-               { label: 'HP', value: 999 },
-               { label: 'ATK', value: 999 },
-               { label: 'DEF', value: 999 },
-               { label: 'SATK', value: 999 },
-               { label: 'SDEF', value: 999 },
-               { label: 'SPD', value: 999 },
+               { label: 'HP', value: 10 },
+               { label: 'ATK', value: 30 },
+               { label: 'DEF', value: 25 },
+               { label: 'SATK', value: 26 },
+               { label: 'SDEF', value: 58 },
+               { label: 'SPD', value: 15 },
             ]}
          />
       </CharTemplate>
