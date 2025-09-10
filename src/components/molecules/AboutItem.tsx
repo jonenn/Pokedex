@@ -1,6 +1,8 @@
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
-// import '@/styles/molecules/AboutItem.css';
+import Height from '@/assets/Height.svg';
+import Weight from '@/assets/Weight.svg';
+import '@/styles/molecules/AboutItem.css';
 
 interface AboutItemProps {
    icon: 'weight' | 'height';
@@ -10,10 +12,12 @@ interface AboutItemProps {
 
 const AboutItem = ({ icon, value, label }: AboutItemProps) => {
    return (
-      <div className="info-item">
-         <Image src={icon} alt={label} />
-         <Text>{value}</Text>
-         <Text>{label}</Text>
+      <div className="about-item">
+         <div className="about-item__container">
+            <Image src={icon === 'weight' ? Weight : Height} alt={label} />
+            <Text className="about-item__value">{value}</Text>
+         </div>
+         <Text className="about-item__label">{label}</Text>
       </div>
    );
 };
