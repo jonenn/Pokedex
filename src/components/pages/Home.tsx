@@ -3,9 +3,9 @@ import MainTemplate from '../templates/MainTemplate';
 
 const Home = () => {
    return (
-      <div className="main-container">
+      <>
          <MainTemplate />
-      </div>
+      </>
    );
 };
 

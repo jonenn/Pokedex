@@ -1,7 +1,11 @@
 main {
    box-shadow: var(--box-shadow);
    background-color: white;
-   height: 100%;
+   flex: 1;
    border-radius: var(--border-radius-secondary);
    padding: 2.4rem 1.2rem;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 0.8rem;
+   overflow-y: auto;
 }

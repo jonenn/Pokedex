@@ -8,6 +8,12 @@
 }
 
 body {
-   padding: 4px;
    font-size: 10px;
+}
+
+#root {
+   display: flex;
+   flex-direction: column;
+   padding: 0.4rem;
+   min-height: 100dvh;
 }
