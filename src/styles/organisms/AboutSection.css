@@ -14,9 +14,9 @@
 
 .about-section__info {
    display: flex;
-   align-items: center;
-   justify-content: space-around;
+   align-items: stretch;
    margin-bottom: 16px;
+   min-height: 48px;
 }
 
 .about-section__description {

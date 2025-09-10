@@ -17,7 +17,7 @@ const Character = () => {
 
          <StatsSection
             stats={[
-               { label: 'HP', value: 10 },
+               { label: 'HP', value: 999 },
                { label: 'ATK', value: 30 },
                { label: 'DEF', value: 25 },
                { label: 'SATK', value: 26 },
