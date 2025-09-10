@@ -21,12 +21,19 @@ input {
    background-position: left 1.2rem center;
    line-height: 12px;
    box-shadow: var(--box-shadow);
+   transition: all 0.3s ease;
+   transform: translateY(0);
 }
 
 input::placeholder {
    color: var(--gray-medium);
    opacity: 1;
    font-weight: 400;
-
    font-style: normal;
+}
+
+input:active,
+:focus {
+   box-shadow: 0px 1px 3px 1px #00000033;
+   transform: translateY(-1px);
 }
