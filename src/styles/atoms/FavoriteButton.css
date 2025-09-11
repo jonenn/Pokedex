@@ -1,0 +1,22 @@
+.favorite-btn {
+   z-index: 1000;
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   background: #fff;
+   border: 2.5px solid #ff4060;
+   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   padding: 0;
+}
+
+.favorite-btn--active {
+   background: #ff4060;
+}
+
+.favorite-btn svg {
+   pointer-events: none;
+}

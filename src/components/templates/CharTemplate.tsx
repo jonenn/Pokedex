@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Main from '../atoms/Main';
 import CharHeader from '../organisms/CharHeader';
 import { typeColors } from '../../utils/typeColors';
@@ -24,7 +24,11 @@ const CharTemplate = ({ title, children, type, number }: MainTemplateProps) => {
 
    return (
       <>
-         <CharHeader name={title || 'Pokémon Name'} number={number} />
+         <CharHeader
+            name={title || 'Pokémon Name'}
+            number={number}
+            type={type}
+         />
          <Main className="main--char">{children}</Main>
       </>
    );

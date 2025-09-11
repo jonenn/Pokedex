@@ -19,6 +19,11 @@
    flex: 1;
 }
 
+.char__container--fav {
+   justify-content: end;
+   gap: 1.6rem;
+}
+
 .char__nav {
    display: flex;
    align-items: center;

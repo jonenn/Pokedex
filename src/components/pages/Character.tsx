@@ -19,14 +19,12 @@ const Character = () => {
             setIsLoading(true);
             const response = await fetchPokemonById(Number(id));
             setPokemon(response);
-            console.log(response);
          } catch (error) {
             console.error('Error fetching pokemon:', error);
          } finally {
             setIsLoading(false);
          }
       };
-
       if (id) {
          fetchPokemon();
       }
@@ -52,25 +50,31 @@ const Character = () => {
       <CharTemplate
          title={pokemon.name}
          type={pokemon.types[0]}
-         number={Number(id && id + 1)}
+         number={pokemon.id}
       >
-         <NavChar
-            type={pokemon.types}
-            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-            next={
-               Number(id) === 1025 ? `/pokemon/0` : `/pokemon/${Number(id) + 1}`
-            }
-            previous={
-               Number(id) === 0 ? `/pokemon/1025` : `/pokemon/${Number(id) - 1}`
-            }
-         />
-         <AboutSection
-            weight={`${pokemon.weight / 10}`}
-            height={`${pokemon.height / 10}`}
-            abilities={pokemon.abilities}
-            description={pokemon.description}
-         />
-         <StatsSection stats={pokemon.stats} />
+         <>
+            <NavChar
+               type={pokemon.types}
+               image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+               next={
+                  Number(id) === 1025
+                     ? `/pokemon/0`
+                     : `/pokemon/${Number(id) + 1}`
+               }
+               previous={
+                  Number(id) === 0
+                     ? `/pokemon/1025`
+                     : `/pokemon/${Number(id) - 1}`
+               }
+            />
+            <AboutSection
+               weight={`${pokemon.weight / 10}`}
+               height={`${pokemon.height / 10}`}
+               abilities={pokemon.abilities}
+               description={pokemon.description}
+            />
+            <StatsSection stats={pokemon.stats} />
+         </>
       </CharTemplate>
    );
 };

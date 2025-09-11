@@ -6,6 +6,8 @@ import Sharp from '@/assets/Sharp.svg';
 import Letter from '@/assets/Letter.svg';
 import '@/styles/molecules/SearchBar.css';
 import SortModal from '../molecules/SortModal';
+import FavoriteButton from '../atoms/FavoriteButton';
+import { Link } from 'react-router-dom';
 
 interface SearchBarProps {
    sortBy: 'number' | 'name';
@@ -31,6 +33,9 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
                height={16}
             />
          </Button>
+         <Link to="/favorites">
+            <FavoriteButton isFavorite={true} />
+         </Link>
 
          {showSort && (
             <SortModal
