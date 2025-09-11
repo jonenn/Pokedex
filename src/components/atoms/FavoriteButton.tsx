@@ -19,10 +19,11 @@ const FavoriteButton = ({
       <button
          onClick={onClick}
          className={className}
-         onFocus={() => setHovered(true)}
+         onMouseEnter={() => setHovered(true)}
+         onMouseLeave={() => setHovered(false)}
          {...props}
       >
-         {hovered ? '☆' : isFavorite ? '★' : '☆'}
+         {hovered ? (isFavorite ? '★' : '☆') : isFavorite ? '★' : '☆'}
       </button>
    );
 };
