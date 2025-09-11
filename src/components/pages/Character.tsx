@@ -51,7 +51,7 @@ const Character = () => {
    return (
       <CharTemplate title={pokemon.name}>
          <NavChar
-            type={pokemon.types[0]}
+            type={pokemon.types}
             image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
             next={`/pokemon/${pokemon?.id + 1}`}
             previous={`/pokemon/${pokemon?.id - 1}`}

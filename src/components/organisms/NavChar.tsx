@@ -9,7 +9,7 @@ interface NavCharProps {
    image: string;
    next: string;
    previous: string;
-   type: string;
+   type: string[];
 }
 
 const NavChar = ({ image, next, previous, type }: NavCharProps) => {
@@ -28,7 +28,9 @@ const NavChar = ({ image, next, previous, type }: NavCharProps) => {
             <NavArrow to={next || '#'} image={RightArrow} />
          </div>
          <div className="nav-char__labels">
-            <Label type={type || 'Type'} />
+            {type.map((t) => (
+               <Label key={t} type={t} />
+            ))}
          </div>
       </>
    );
