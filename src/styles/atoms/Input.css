@@ -1,4 +1,4 @@
-input {
+.search-bar__input {
    border-radius: var(--border-radius);
    -webkit-appearance: none;
    -moz-appearance: none;
