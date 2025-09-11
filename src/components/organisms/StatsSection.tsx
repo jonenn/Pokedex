@@ -6,6 +6,8 @@ interface StatsSectionProps {
    stats: { label: string; value: number }[];
 }
 
+const labels = ['HP', 'ATK', 'DEF', 'SATK', 'SDEF', 'SPD'];
+
 const StatsSection = ({ stats }: StatsSectionProps) => {
    return (
       <section className="stats-section">
@@ -13,8 +15,12 @@ const StatsSection = ({ stats }: StatsSectionProps) => {
             Base Stats
          </Text>
          <div className="stats-section__list">
-            {stats.map((stat) => (
-               <Stats key={stat.label} label={stat.label} value={stat.value} />
+            {stats.map((stat, index) => (
+               <Stats
+                  key={stat.label}
+                  label={labels[index] + 1}
+                  value={stat.value}
+               />
             ))}
          </div>
       </section>
