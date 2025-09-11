@@ -34,7 +34,7 @@ const Character = () => {
 
    if (isLoading) {
       return (
-         <CharTemplate title="Loading...">
+         <CharTemplate title="Loading..." type="Normal" number={999}>
             <div>Loading...</div>
          </CharTemplate>
       );
@@ -42,19 +42,27 @@ const Character = () => {
 
    if (!pokemon) {
       return (
-         <CharTemplate title="Not found">
+         <CharTemplate title="Not found" type="Normal" number={999}>
             <div>Pokemon not found</div>
          </CharTemplate>
       );
    }
 
    return (
-      <CharTemplate title={pokemon.name}>
+      <CharTemplate
+         title={pokemon.name}
+         type={pokemon.types[0]}
+         number={Number(id && id + 1)}
+      >
          <NavChar
             type={pokemon.types}
             image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
-            next={`/pokemon/${pokemon?.id + 1}`}
-            previous={`/pokemon/${pokemon?.id - 1}`}
+            next={
+               Number(id) === 1025 ? `/pokemon/0` : `/pokemon/${Number(id) + 1}`
+            }
+            previous={
+               Number(id) === 0 ? `/pokemon/1025` : `/pokemon/${Number(id) - 1}`
+            }
          />
          <AboutSection
             weight={`${pokemon.weight / 10}`}

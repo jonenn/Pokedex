@@ -4,8 +4,8 @@ import '@/styles/organisms/CharHeader.css';
 import ArrowImage from '@/assets/NavArrow.svg';
 
 interface CharHeaderProps {
-   name?: string;
-   number?: number;
+   name: string;
+   number: number;
 }
 
 const CharHeader = ({ name, number }: CharHeaderProps) => {

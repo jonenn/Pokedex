@@ -10,19 +10,19 @@
    --color-normal: #aaa67f;
    --color-psychic: #fb5584;
    --color-steel: #b7b9d0;
-   --color-fire: #f57d31;
-   --color-water: #6493eb;
-   --color-water: #74cb48;
-   --color-electric: #f9cf30;
-   --color-psychic: #fb5584;
    --color-ice: #9ad6df;
    --color-dragon: #7037ff;
    --color-dark: #75574c;
    --color-fairy: #e69eac;
+   --gray-wireframe: #b8b8b8;
+   --color-fighting: #c12239;
+   --color-flying: #a891ec;
+   --color-ground: #dec16b;
+   --color-poison: #a43e9e;
+   --color-rock: #b69e31;
 
    --gray-light: #f1f1f1;
    --gray-medium: #666666;
    --gray-dark: #1d1d1d;
    --gray-background: #f2f2f2;
-   --gray-wireframe: #b8b8b8;
 }
