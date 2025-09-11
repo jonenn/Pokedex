@@ -8,3 +8,38 @@ body {
    align-items: center;
    height: 100%;
 }
+
+.home__controls {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   margin: 1rem 0;
+   padding: 0 1rem;
+}
+
+.home__grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+   gap: 1rem;
+   padding: 1rem;
+}
+
+.sort-button {
+   padding: 0.5rem 1rem;
+   border: 2px solid var(--color-accent);
+   border-radius: 0.5rem;
+   background-color: transparent;
+   color: var(--color-text);
+   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+}
+
+.sort-button:hover {
+   background-color: var(--color-accent);
+   color: var(--color-main);
+}
+
+.sort-button--active {
+   background-color: var(--color-accent);
+   color: var(--color-main);
+}

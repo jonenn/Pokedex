@@ -18,8 +18,17 @@ export interface BasicPokemon {
    name: string;
 }
 
-async function fetchAllPokemons(): Promise<BasicPokemon[]> {
-   const data = await fetchPokemon(GET_ALL_POKEMONS, { limit: 150 });
+type SortType = 'number' | 'name';
+
+async function fetchAllPokemons(
+   sortBy: SortType = 'number'
+): Promise<BasicPokemon[]> {
+   const orderBy = sortBy === 'number' ? [{ id: 'asc' }] : [{ name: 'asc' }];
+
+   const data = await fetchPokemon(GET_ALL_POKEMONS, {
+      limit: 150,
+      orderBy,
+   });
    return data.data.pokemon_v2_pokemon;
 }
 

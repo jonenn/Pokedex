@@ -5,13 +5,16 @@ import { useEffect, useState } from 'react';
 import { fetchAllPokemons } from '../../api/pokemon';
 import type { BasicPokemon } from '../../api/pokemon';
 
+type SortType = 'number' | 'name';
+
 const Home = () => {
    const [pokemons, setPokemons] = useState<BasicPokemon[]>([]);
+   const [sortBy, setSortBy] = useState<SortType>('number');
 
    useEffect(() => {
       const getAllPokemons = async () => {
          try {
-            const pokemonList = await fetchAllPokemons();
+            const pokemonList = await fetchAllPokemons(sortBy);
             setPokemons(pokemonList);
             console.log(pokemonList);
          } catch (error) {
@@ -20,7 +23,7 @@ const Home = () => {
       };
 
       getAllPokemons();
-   }, []);
+   }, [sortBy]);
 
    return (
       <MainTemplate>
