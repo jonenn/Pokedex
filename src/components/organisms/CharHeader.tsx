@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import NavArrow from '../molecules/NavArrow';
 import Text from '../atoms/Text';
-import FavoriteButton from '../atoms/FavoriteButton';
 import '@/styles/organisms/CharHeader.css';
 import ArrowImage from '@/assets/NavArrow.svg';
+import FavoriteButton from '../atoms/FavoriteButton';
 
 interface CharHeaderProps {
    name: string;

@@ -1,22 +1,18 @@
-.favorite-btn {
-   z-index: 1000;
-   width: 60px;
-   height: 60px;
-   border-radius: 50%;
-   background: #fff;
-   border: 2.5px solid #ff4060;
-   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-   padding: 0;
+.favorites__button {
+   position: absolute;
+   box-shadow: none;
+   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+   z-index: 10;
+   left: 0.4rem;
+   top: 0.4rem;
+   border-radius: 999999px;
+   background-color: transparent;
 }
 
-.favorite-btn--active {
-   background: #ff4060;
-}
-
-.favorite-btn svg {
-   pointer-events: none;
+.favorites__button:hover,
+.favorites__button:focus-visible {
+   transform: scale(1.5) rotate(-6deg);
+   z-index: 2;
+   box-shadow: none;
 }

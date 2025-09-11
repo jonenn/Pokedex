@@ -3,8 +3,8 @@ import '@/styles/organisms/Header.css';
 import SearchBar from '../molecules/SearchBar';
 
 interface HeaderProps {
-   sortBy: 'number' | 'name';
-   onSortChange: (value: 'number' | 'name') => void;
+   sortBy?: 'number' | 'name';
+   onSortChange?: (value: 'number' | 'name') => void;
 }
 
 const Header = ({ sortBy, onSortChange }: HeaderProps) => {

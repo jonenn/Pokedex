@@ -1,24 +1,21 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Input from '../atoms/Input';
 import Sharp from '@/assets/Sharp.svg';
 import Letter from '@/assets/Letter.svg';
 import '@/styles/molecules/SearchBar.css';
-import SortModal from '../molecules/SortModal';
-import { Link } from 'react-router-dom';
+import SortModal from './SortModal';
 import FavoriteButton from '../atoms/FavoriteButton';
+import { Link } from 'react-router-dom';
 
 interface SearchBarProps {
-   sortBy?: 'number' | 'name';
-   onSortChange?: (value: 'number' | 'name') => void;
+   sortBy: 'number' | 'name';
+   onSortChange: (value: 'number' | 'name') => void;
 }
 
 const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
    const [showSort, setShowSort] = useState(false);
-   const location = useLocation();
-   console.log(location);
 
    return (
       <div className="search-bar">
@@ -28,24 +25,19 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
             name="search"
             className="search-bar__input"
          />
-         {location.pathname !== '/favorites' && (
-            <Button
-               onClick={() => setShowSort((prev) => !prev)}
-               className="search-bar__button"
-            >
-               <Image
-                  src={sortBy === 'name' ? Letter : Sharp}
-                  alt="Sort button"
-                  width={16}
-                  height={16}
-               />
-            </Button>
-         )}
+         <Button onClick={() => setShowSort((prev) => !prev)}>
+            <Image
+               src={sortBy === 'name' ? Letter : Sharp}
+               alt="Sort button"
+               width={16}
+               height={16}
+            />
+         </Button>
          <Link to="/favorites">
-            <FavoriteButton isFavorite={true} className="search-bar__button" />
+            <FavoriteButton isFavorite={true} />
          </Link>
 
-         {showSort && sortBy && onSortChange && (
+         {showSort && (
             <SortModal
                selected={sortBy}
                onChange={(val) => {

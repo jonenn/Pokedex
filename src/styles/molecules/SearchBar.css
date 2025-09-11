@@ -4,9 +4,10 @@
    gap: 1.6rem;
 }
 
-button {
+.search-bar__button {
    padding: 0.8rem;
    background-color: white;
    border-radius: var(--border-radius);
    min-width: 3.2rem;
+   min-height: 3.2rem;
 }
