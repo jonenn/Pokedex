@@ -23,9 +23,9 @@ const AboutSection = ({
             About
          </Text>
          <div className="about-section__info">
-            <AboutItem icon="weight" value={weight} label="Weight" />
+            <AboutItem icon="weight" value={`${weight} kg`} label="Weight" />
             <Divider />
-            <AboutItem icon="height" value={height} label="Height" />
+            <AboutItem icon="height" value={`${height} m`} label="Height" />
             <Divider />
             <Abilities abilities={abilities} label="Moves" />
          </div>

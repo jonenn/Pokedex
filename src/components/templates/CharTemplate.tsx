@@ -3,12 +3,13 @@ import CharHeader from '../organisms/CharHeader';
 
 interface MainTemplateProps {
    children?: React.ReactNode;
+   title: string;
 }
 
-const CharTemplate = ({ children }: MainTemplateProps) => {
+const CharTemplate = ({ title, children }: MainTemplateProps) => {
    return (
       <>
-         <CharHeader name="Pokémon Name" number={999} />
+         <CharHeader name={title || 'Pokémon Name'} number={999} />
          <Main className="main--char">{children}</Main>
       </>
    );

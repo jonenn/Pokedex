@@ -3,28 +3,63 @@ import CharTemplate from '../templates/CharTemplate';
 import NavChar from '../organisms/NavChar';
 import AboutSection from '../organisms/AboutSection';
 import StatsSection from '../organisms/StatsSection';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import type { Pokemon } from '../../utils/PokemonTypes';
+import { fetchPokemonById } from '../../api/pokemon';
 
 const Character = () => {
-   return (
-      <CharTemplate>
-         <NavChar type="Type" />
-         <AboutSection
-            weight="9.9 kg"
-            height="9.9 m"
-            abilities={['Ability 1', 'Ability 2']}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis eros vitae tellus condimentum maximus sit amet in eros."
-         />
+   const { id } = useParams();
+   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+   const [isLoading, setIsLoading] = useState(true);
 
-         <StatsSection
-            stats={[
-               { label: 'HP', value: 999 },
-               { label: 'ATK', value: 30 },
-               { label: 'DEF', value: 25 },
-               { label: 'SATK', value: 26 },
-               { label: 'SDEF', value: 58 },
-               { label: 'SPD', value: 15 },
-            ]}
+   useEffect(() => {
+      const fetchPokemon = async () => {
+         try {
+            setIsLoading(true);
+            const response = await fetchPokemonById(Number(id));
+            setPokemon(response);
+         } catch (error) {
+            console.error('Error fetching pokemon:', error);
+         } finally {
+            setIsLoading(false);
+         }
+      };
+
+      if (id) {
+         fetchPokemon();
+      }
+   }, [id]);
+
+   if (isLoading) {
+      return (
+         <CharTemplate title="Loading...">
+            <div>Loading...</div>
+         </CharTemplate>
+      );
+   }
+
+   if (!pokemon) {
+      return (
+         <CharTemplate title="Not found">
+            <div>Pokemon not found</div>
+         </CharTemplate>
+      );
+   }
+
+   return (
+      <CharTemplate title={pokemon.name}>
+         <NavChar
+            type={pokemon.types[0]}
+            image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
          />
+         <AboutSection
+            weight={`${pokemon.weight / 10}`}
+            height={`${pokemon.height / 10}`}
+            abilities={pokemon.abilities}
+            description={pokemon.description}
+         />
+         <StatsSection stats={pokemon.stats} />
       </CharTemplate>
    );
 };
