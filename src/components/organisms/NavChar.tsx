@@ -6,9 +6,9 @@ import RightArrow from '@/assets/RightArrow.svg';
 import Label from '../atoms/Label';
 
 interface NavCharProps {
-   image?: string;
-   next?: string;
-   previous?: string;
+   image: string;
+   next: string;
+   previous: string;
    type: string;
 }
 

@@ -53,6 +53,8 @@ const Character = () => {
          <NavChar
             type={pokemon.types[0]}
             image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
+            next={`/pokemon/${pokemon?.id + 1}`}
+            previous={`/pokemon/${pokemon?.id - 1}`}
          />
          <AboutSection
             weight={`${pokemon.weight / 10}`}

@@ -4,4 +4,5 @@
    background-color: red;
    padding: 0.2rem 0.8rem;
    font-weight: 700;
+   text-transform: capitalize;
 }
