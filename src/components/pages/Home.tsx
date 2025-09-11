@@ -26,7 +26,7 @@ const Home = () => {
    }, [sortBy]);
 
    return (
-      <MainTemplate>
+      <MainTemplate sortBy={sortBy} onSortChange={setSortBy}>
          {pokemons?.map((pokemon) => (
             <Card
                key={pokemon.id}

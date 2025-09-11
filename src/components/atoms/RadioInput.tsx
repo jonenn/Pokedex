@@ -1,4 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
+import '@/styles/atoms/RadioInput.css';
 
 interface RadioInputProps extends InputHTMLAttributes<HTMLInputElement> {
    label: string;

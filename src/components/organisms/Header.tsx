@@ -1,12 +1,17 @@
-import Logo from "../molecules/Logo";
-import "@/styles/organisms/Header.css";
-import SearchBar from "../molecules/SearchBar";
+import Logo from '../molecules/Logo';
+import '@/styles/organisms/Header.css';
+import SearchBar from '../molecules/SearchBar';
 
-const Header = () => {
+interface HeaderProps {
+   sortBy: 'number' | 'name';
+   onSortChange: (value: 'number' | 'name') => void;
+}
+
+const Header = ({ sortBy, onSortChange }: HeaderProps) => {
    return (
       <div className="header">
          <Logo />
-         <SearchBar />
+         <SearchBar sortBy={sortBy} onSortChange={onSortChange} />
       </div>
    );
 };

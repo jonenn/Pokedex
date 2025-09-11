@@ -4,12 +4,18 @@ import '@/styles/templates/MainTemplate.css';
 
 interface MainTemplateProps {
    children?: React.ReactNode;
+   sortBy: 'number' | 'name';
+   onSortChange: (value: 'number' | 'name') => void;
 }
 
-const MainTemplate = ({ children }: MainTemplateProps) => {
+const MainTemplate = ({
+   children,
+   sortBy,
+   onSortChange,
+}: MainTemplateProps) => {
    return (
       <>
-         <Header />
+         <Header sortBy={sortBy} onSortChange={onSortChange} />
          <div className="main__container">
             <Main>
                <div className="main__subcontainer">{children}</div>

@@ -2,13 +2,18 @@ import { useState } from 'react';
 import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Input from '../atoms/Input';
-import SortDropdown from '../molecules/SortModal';
 import Sharp from '@/assets/Sharp.svg';
+import Letter from '@/assets/Letter.svg';
 import '@/styles/molecules/SearchBar.css';
+import SortModal from '../molecules/SortModal';
 
-const SearchBar = () => {
+interface SearchBarProps {
+   sortBy: 'number' | 'name';
+   onSortChange: (value: 'number' | 'name') => void;
+}
+
+const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
    const [showSort, setShowSort] = useState(false);
-   const [sortBy, setSortBy] = useState<'number' | 'name'>('number');
 
    return (
       <div className="search-bar">
@@ -19,13 +24,21 @@ const SearchBar = () => {
             className="search-bar__input"
          />
          <Button onClick={() => setShowSort((prev) => !prev)}>
-            <Image src={Sharp} alt="Sort button" width={16} height={16} />
+            <Image
+               src={sortBy === 'name' ? Letter : Sharp}
+               alt="Sort button"
+               width={16}
+               height={16}
+            />
          </Button>
 
          {showSort && (
-            <SortDropdown
+            <SortModal
                selected={sortBy}
-               onChange={(val) => setSortBy(val as 'number' | 'name')}
+               onChange={(val) => {
+                  onSortChange(val as 'number' | 'name');
+                  setShowSort(false);
+               }}
             />
          )}
       </div>
