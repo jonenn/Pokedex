@@ -19,6 +19,7 @@ const Character = () => {
             setIsLoading(true);
             const response = await fetchPokemonById(Number(id));
             setPokemon(response);
+            console.log(response);
          } catch (error) {
             console.error('Error fetching pokemon:', error);
          } finally {

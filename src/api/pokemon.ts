@@ -1,5 +1,6 @@
 import { GET_POKEMON_BY_ID } from '../graphql/queries/getPokemonById';
-import type { GQLResponse, Pokemon } from '@/utils/PokemonTypes';
+import { GET_ALL_POKEMONS } from '../graphql/queries/getAllPokemons';
+import type { Pokemon } from '../utils/PokemonTypes';
 
 const API_URL = 'https://beta.pokeapi.co/graphql/v1beta';
 
@@ -12,8 +13,18 @@ async function fetchPokemon(query: string, variables = {}) {
    return response.json();
 }
 
+export interface BasicPokemon {
+   id: number;
+   name: string;
+}
+
+async function fetchAllPokemons(): Promise<BasicPokemon[]> {
+   const data = await fetchPokemon(GET_ALL_POKEMONS, { limit: 150 });
+   return data.data.pokemon_v2_pokemon;
+}
+
 async function fetchPokemonById(id: number): Promise<Pokemon> {
-   const data = await fetchPokemon<GQLResponse>(GET_POKEMON_BY_ID, { id });
+   const data = await fetchPokemon(GET_POKEMON_BY_ID, { id });
    const result = data.data.pokemon_v2_pokemon[0];
 
    return {
@@ -40,4 +51,4 @@ async function fetchPokemonById(id: number): Promise<Pokemon> {
    };
 }
 
-export { fetchPokemon, fetchPokemonById };
+export { fetchPokemonById, fetchAllPokemons };

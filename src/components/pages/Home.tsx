@@ -2,40 +2,36 @@ import '@/styles/pages/Home.css';
 import MainTemplate from '../templates/MainTemplate';
 import Card from '../molecules/Card';
 import { useEffect, useState } from 'react';
-
-interface Pokemon {
-   name: string;
-}
+import { fetchAllPokemons } from '../../api/pokemon';
+import type { BasicPokemon } from '../../api/pokemon';
 
 const Home = () => {
-   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+   const [pokemons, setPokemons] = useState<BasicPokemon[]>([]);
 
    useEffect(() => {
-      const setAllPokemons = async () => {
-         const response = await fetch(
-            'https://pokeapi.co/api/v2/pokemon?limit=151'
-         );
-         const data = await response.json();
-         setPokemons(data.results);
-         console.log(data.results);
+      const getAllPokemons = async () => {
+         try {
+            const pokemonList = await fetchAllPokemons();
+            setPokemons(pokemonList);
+            console.log(pokemonList);
+         } catch (error) {
+            console.error('Error fetching pokemons:', error);
+         }
       };
 
-      setAllPokemons();
+      getAllPokemons();
    }, []);
 
    return (
       <MainTemplate>
-         {pokemons.map((pokemon, index) => {
-            const pokemonId = index + 1;
-            return (
-               <Card
-                  key={pokemonId}
-                  number={pokemonId}
-                  title={pokemon.name}
-                  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-               />
-            );
-         })}
+         {pokemons?.map((pokemon) => (
+            <Card
+               key={pokemon.id}
+               number={pokemon.id}
+               title={pokemon.name}
+               image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+            />
+         ))}
       </MainTemplate>
    );
 };
