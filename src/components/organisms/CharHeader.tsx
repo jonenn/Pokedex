@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import NavArrow from '../molecules/NavArrow';
-import Text from '../atoms/Text';
-import '@/styles/organisms/CharHeader.css';
-import ArrowImage from '@/assets/NavArrow.svg';
-import FavoriteButton from '../atoms/FavoriteButton';
+import { useEffect, useState } from "react";
+import NavArrow from "../molecules/NavArrow";
+import Text from "../atoms/Text";
+import "@/styles/organisms/CharHeader.css";
+import ArrowImage from "@/assets/NavArrow.svg";
+import FavoriteButton from "../atoms/FavoriteButton";
+import { toast } from "react-toastify";
 
 interface CharHeaderProps {
    name: string;
@@ -11,7 +12,7 @@ interface CharHeaderProps {
    type?: string;
 }
 
-const FAVORITES_KEY = 'favoritePokemons';
+const FAVORITES_KEY = "favoritePokemons";
 
 const CharHeader = ({ name, number, type }: CharHeaderProps) => {
    const [isFavorite, setIsFavorite] = useState(false);
@@ -27,6 +28,8 @@ const CharHeader = ({ name, number, type }: CharHeaderProps) => {
       }
    }, [number]);
 
+   const capitalize = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
    const handleFavoriteClick = () => {
       const stored = localStorage.getItem(FAVORITES_KEY);
       let favs: { id: number; name: string; type: string }[] = stored
@@ -34,12 +37,39 @@ const CharHeader = ({ name, number, type }: CharHeaderProps) => {
          : [];
       if (!isFavorite) {
          if (!favs.some((p) => p.id === number)) {
-            favs.push({ id: number, name, type: type || '' });
+            favs.push({ id: number, name, type: type || "" });
          }
          setIsFavorite(true);
+         toast.info(
+            <Text>
+               <strong>{capitalize(name)}</strong> <i>added</i> to favorites!
+            </Text>,
+            {
+               position: "bottom-center",
+               autoClose: 1000,
+               hideProgressBar: true,
+               closeOnClick: false,
+               pauseOnHover: true,
+               draggable: true,
+            }
+         );
       } else {
          favs = favs.filter((p) => p.id !== number);
          setIsFavorite(false);
+         toast.info(
+            <Text>
+               <strong>{capitalize(name)}</strong> <i>removed</i> from
+               favorites!
+            </Text>,
+            {
+               position: "bottom-center",
+               autoClose: 5000,
+               hideProgressBar: true,
+               closeOnClick: false,
+               pauseOnHover: true,
+               draggable: true,
+            }
+         );
       }
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs));
    };
@@ -49,10 +79,10 @@ const CharHeader = ({ name, number, type }: CharHeaderProps) => {
          <div className="char__container">
             <div className="char__nav">
                <NavArrow image={ArrowImage} />
-               <Text as="h1">{name || 'Pokémon Name'}</Text>
+               <Text as="h1">{name || "Pokémon Name"}</Text>
             </div>
             <div className="char__container char__container--fav">
-               <Text as="h5">#{number || '999'}</Text>
+               <Text as="h5">#{number || "999"}</Text>
                <FavoriteButton
                   isFavorite={isFavorite}
                   onClick={handleFavoriteClick}
