@@ -4,10 +4,54 @@
    gap: 1.6rem;
 }
 
+.search-bar__wrapper {
+   width: 100%;
+}
+
+.search-bar__wrapper input {
+   border: 2px solid transparent;
+   transition: border 0.2s;
+}
+
+.search-bar__wrapper--error input {
+   border: 2px solid var(--color-main);
+   color: var(--color-main);
+   animation: shake 0.3s ease-in-out;
+}
+
+.search-bar__error {
+   color: white;
+   animation: shake 0.3s ease-in-out;
+   padding-left: 0.9rem;
+   font-size: 0.9rem;
+}
+
 .search-bar__button {
    padding: 0.8rem;
    background-color: white;
    border-radius: var(--border-radius);
    min-width: 3.2rem;
    min-height: 3.2rem;
+   max-height: 3.2rem;
+}
+
+@keyframes shake {
+   0% {
+      transform: translateX(0);
+   }
+   20% {
+      transform: translateX(-6px);
+   }
+   40% {
+      transform: translateX(6px);
+   }
+   60% {
+      transform: translateX(-6px);
+   }
+   80% {
+      transform: translateX(6px);
+   }
+   100% {
+      transform: translateX(0);
+   }
 }
