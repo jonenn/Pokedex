@@ -43,15 +43,7 @@ const CharHeader = ({ name, number, type }: CharHeaderProps) => {
          toast.info(
             <Text>
                <strong>{capitalize(name)}</strong> <i>added</i> to favorites!
-            </Text>,
-            {
-               position: "bottom-center",
-               autoClose: 1000,
-               hideProgressBar: true,
-               closeOnClick: false,
-               pauseOnHover: true,
-               draggable: true,
-            }
+            </Text>
          );
       } else {
          favs = favs.filter((p) => p.id !== number);
@@ -60,15 +52,7 @@ const CharHeader = ({ name, number, type }: CharHeaderProps) => {
             <Text>
                <strong>{capitalize(name)}</strong> <i>removed</i> from
                favorites!
-            </Text>,
-            {
-               position: "bottom-center",
-               autoClose: 5000,
-               hideProgressBar: true,
-               closeOnClick: false,
-               pauseOnHover: true,
-               draggable: true,
-            }
+            </Text>
          );
       }
       localStorage.setItem(FAVORITES_KEY, JSON.stringify(favs));

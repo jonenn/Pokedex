@@ -31,7 +31,15 @@ const CharTemplate = ({ title, children, type, number }: MainTemplateProps) => {
             type={type}
          />
          <Main className="main--char">{children}</Main>
-         <ToastContainer position="bottom-center" autoClose={2000} />
+         <ToastContainer
+            position="bottom-center"
+            autoClose={1000}
+            hideProgressBar
+            closeOnClick={false}
+            pauseOnHover
+            draggable
+            newestOnTop
+         />
       </>
    );
 };
