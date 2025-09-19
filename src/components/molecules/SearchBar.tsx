@@ -1,5 +1,10 @@
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {
+   useLocation,
+   useNavigate,
+   useSearchParams,
+   Link,
+} from 'react-router-dom';
 import Button from '../atoms/Button';
 import Image from '../atoms/Image';
 import Input from '../atoms/Input';
@@ -7,10 +12,8 @@ import Sharp from '@/assets/Sharp.svg';
 import Letter from '@/assets/Letter.svg';
 import '@/styles/molecules/SearchBar.css';
 import SortModal from '../molecules/SortModal';
-import { Link } from 'react-router-dom';
 import FavoriteButton from '../atoms/FavoriteButton';
 import Text from '../atoms/Text';
-import { searchPokemons } from '../../api/pokemon';
 
 interface SearchBarProps {
    sortBy?: 'number' | 'name';
@@ -18,15 +21,23 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
-   const [keyword, setKeyword] = useState('');
+   const [params] = useSearchParams();
+   const query = params.get('query') || '';
+   const [keyword, setKeyword] = useState(query);
    const [error, setError] = useState('');
    const [showSort, setShowSort] = useState(false);
    const location = useLocation();
+   const navigate = useNavigate();
+
+   // ✅ Keep input in sync with URL query param
+   useEffect(() => {
+      setKeyword(query);
+   }, [query]);
 
    const getValidationError = (value: string): string => {
       const trimmed = value.trim();
 
-      if (trimmed.length === 0) return '';
+      if (trimmed.length <= 1) return '';
       if (trimmed.length < 3) return 'Enter at least 3 characters.';
       if (trimmed.length > 30) return 'Search term is too long.';
       if (!/^[a-zA-Z\s-]+$/.test(trimmed))
@@ -41,17 +52,12 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
       setError(getValidationError(value));
    };
 
-   const handleSearch = async () => {
+   const handleSearch = () => {
       const validationError = getValidationError(keyword);
       setError(validationError);
 
       if (!validationError && keyword.trim()) {
-         try {
-            const result = await searchPokemons(keyword.trim());
-            console.log(result);
-         } catch (err) {
-            console.error(err);
-         }
+         navigate(`/search?query=${encodeURIComponent(keyword.trim())}`);
       }
    };
 
