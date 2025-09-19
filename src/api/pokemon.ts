@@ -1,6 +1,7 @@
 import { GET_POKEMON_BY_ID } from '../graphql/queries/getPokemonById';
 import { GET_ALL_POKEMONS } from '../graphql/queries/getAllPokemons';
 import type { Pokemon } from '../utils/PokemonTypes';
+import { SEARCH_POKEMONS } from '../graphql/queries/searchPokemons';
 
 const API_URL = 'https://beta.pokeapi.co/graphql/v1beta';
 
@@ -60,4 +61,12 @@ async function fetchPokemonById(id: number): Promise<Pokemon> {
    };
 }
 
-export { fetchPokemonById, fetchAllPokemons };
+async function searchPokemons(value: string): Promise<BasicPokemon[]> {
+   const data = await fetchPokemon(SEARCH_POKEMONS, {
+      name: `%${value}%`,
+   });
+
+   return data.data.pokemon_v2_pokemon;
+}
+
+export { fetchPokemonById, fetchAllPokemons, searchPokemons };

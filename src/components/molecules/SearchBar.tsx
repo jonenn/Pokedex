@@ -10,6 +10,7 @@ import SortModal from '../molecules/SortModal';
 import { Link } from 'react-router-dom';
 import FavoriteButton from '../atoms/FavoriteButton';
 import Text from '../atoms/Text';
+import { searchPokemons } from '../../api/pokemon';
 
 interface SearchBarProps {
    sortBy?: 'number' | 'name';
@@ -22,28 +23,37 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
    const [showSort, setShowSort] = useState(false);
    const location = useLocation();
 
-   const validateKeyword = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      setKeyword(value);
-
+   const getValidationError = (value: string): string => {
       const trimmed = value.trim();
 
-      if (trimmed.length === 0 || trimmed.length === 1) {
-         setError('');
-         return;
-      }
+      if (trimmed.length === 0) return '';
+      if (trimmed.length < 3) return 'Enter at least 3 characters.';
+      if (trimmed.length > 30) return 'Search term is too long.';
+      if (!/^[a-zA-Z\s-]+$/.test(trimmed))
+         return 'Only letters, spaces, and hyphens are allowed.';
 
-      if (trimmed.length < 3) {
-         setError('Enter at least 3 characters.');
-      } else if (trimmed.length > 30) {
-         setError('Search term is too long.');
-      } else if (!/^[a-zA-Z\s-]+$/.test(trimmed)) {
-         setError('Only letters, spaces, and hyphens are allowed.');
-      } else {
-         setError('');
+      return '';
+   };
+
+   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      setKeyword(value);
+      setError(getValidationError(value));
+   };
+
+   const handleSearch = async () => {
+      const validationError = getValidationError(keyword);
+      setError(validationError);
+
+      if (!validationError && keyword.trim()) {
+         try {
+            const result = await searchPokemons(keyword.trim());
+            console.log(result);
+         } catch (err) {
+            console.error(err);
+         }
       }
    };
-   console.log(location);
 
    return (
       <div className="search-bar">
@@ -58,8 +68,12 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
                name="search"
                className="search-bar__input"
                value={keyword}
-               onChange={(e) => {
-                  validateKeyword(e);
+               onChange={handleChange}
+               onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                     e.preventDefault();
+                     handleSearch();
+                  }
                }}
             />
             {error && (
@@ -68,6 +82,7 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
                </Text>
             )}
          </div>
+
          {location.pathname !== '/favorites' && (
             <Button
                onClick={() => setShowSort((prev) => !prev)}
@@ -81,6 +96,7 @@ const SearchBar = ({ sortBy, onSortChange }: SearchBarProps) => {
                />
             </Button>
          )}
+
          <Link to="/favorites">
             <FavoriteButton isFavorite={true} className="search-bar__button" />
          </Link>
